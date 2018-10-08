@@ -3,7 +3,7 @@ Yet another Clojure static code analyze tool.
 
 Mustard is a static Clojure code analyzer plugin for
 [Leiningen](https://leiningen.org/). It's goal is for helping developers to
-improve their code quality.
+improve their code quality. Nothing too fancy or hard to use.
 
 Mustard is currently under development and lacks most of its planned features.
 
@@ -27,7 +27,7 @@ lein mustard
 
 ## Configuring
 
-There is two ways to configure linters.
+There is two ways to configure mustard and individual linters.
 
 Modify `:mustard` in `project.clj` or `profile.clj`.
 
@@ -37,7 +37,7 @@ Modify `:mustard` in `project.clj` or `profile.clj`.
           :unused-requires {:enable? false}}
 ```
 
-Or give key values as command line arguments:
+Or give configuration hash-map as command line arguments:
 
 ```bash
 lein mustard "{:skip-tests? true :unused-requires {:enable? false}}"
