@@ -1,5 +1,6 @@
 (ns mustard.requires
-  (:require [mustard.symbols :as s]))
+  (:require [mustard.symbols :as s]
+            [clojure.set :refer [difference]]))
 
 (defn get-symbol [coll k]
   (when (and (seq? coll)
@@ -58,3 +59,10 @@
 (defn summarize-requires [r]
   {:functions (get-required-functions r)
    :namespaces (get-required-namespaces r)})
+
+(defn find-unusued-requires [code]
+  (let [requires (summarize-requires (find-requires code))
+        symbols (set (s/get-symbols (rest code)))]
+    {:functions (difference (:functions requires) symbols)
+     :namespaces (difference
+                   (:namespaces requires) (s/get-used-namespaces symbols))}))
