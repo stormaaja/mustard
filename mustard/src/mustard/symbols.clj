@@ -8,3 +8,10 @@
         (conj c n)))
     '()
     code))
+
+(defn get-namespace-symbol [s]
+  (when (and (symbol? s) (namespace s))
+    (symbol (namespace s))))
+
+(defn get-used-namespaces [symbols]
+  (set (map get-namespace-symbol symbols)))
