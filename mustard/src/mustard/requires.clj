@@ -60,7 +60,7 @@
   {:functions (get-required-functions r)
    :namespaces (get-required-namespaces r)})
 
-(defn find-unusued-requires [code]
+(defn find-unused-requires [code]
   (let [requires (summarize-requires (find-requires code))
         symbols (set (s/get-symbols (rest code)))]
     {:functions (difference (:functions requires) symbols)
