@@ -9,5 +9,5 @@
 
 (defn find-clj-files [folder]
   (filter
-   clj-file?
-   (file-seq (io/file folder))))
+    clj-file?
+    (file-seq (io/file folder))))

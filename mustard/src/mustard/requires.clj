@@ -9,19 +9,19 @@
 
 (defn find-requires [code]
   (->> (some #(get-symbol % 'ns) code)
-      (rest)
-      (some #(get-symbol % :require))
-      (rest)))
+       (rest)
+       (some #(get-symbol % :require))
+       (rest)))
 
 (defn reduce-requires [f requires]
   (reduce
     (fn [c n]
       (loop [coll (rest n)
-            nss c]
-       (if (empty? coll)
-         nss
-         (let [[coll nss] (f coll nss)]
-           (recur coll nss)))))
+             nss c]
+        (if (empty? coll)
+          nss
+          (let [[coll nss] (f coll nss)]
+            (recur coll nss)))))
     #{}
     requires))
 
