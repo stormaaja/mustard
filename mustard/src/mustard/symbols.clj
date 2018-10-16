@@ -14,4 +14,6 @@
     (symbol (namespace s))))
 
 (defn get-used-namespaces [symbols]
-  (set (map get-namespace-symbol symbols)))
+  (->> (map get-namespace-symbol symbols)
+       (remove nil?)
+       set))
