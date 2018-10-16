@@ -50,6 +50,8 @@ lein mustard "{:skip-tests? true :unused-requires {:enable? false}}"
 Mustard seeks for unused requires. Because Mustard is static code analyze tool,
 it will not find any unused :all requires or if there is redefined symbols.
 
+Note that Mustard analyzes only first namespace declaring in file.
+
 # License
 
 Distributed under the Eclipse Public License, the same as Clojure.
