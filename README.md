@@ -9,8 +9,8 @@ Mustard is currently under development and lacks most of its planned features.
 
 # Installing
 
-Put ![](https://clojars.org/mustard/latest-version.svg)
-into the `:plugins` vector of a project or your `:user` profile.
+Put `[lein-mustard "0.1.0"]` into the `:plugins` vector of a project or your
+`:user` profile.
 
 # Usage
 
