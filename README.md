@@ -9,7 +9,8 @@ Mustard is currently under development and lacks most of its planned features.
 
 # Installing
 
-TODO
+Put ![](https://clojars.org/mustard/latest-version.svg)
+into the `:plugins` vector of a project or your `:user` profile.
 
 # Usage
 
