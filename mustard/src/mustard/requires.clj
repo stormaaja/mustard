@@ -1,12 +1,16 @@
 (ns mustard.requires
   (:require [mustard.symbols :as s]))
 
+(defn get-symbol [coll k]
+  (when (and (seq? coll)
+             (= (first coll) k))
+    coll))
+
 (defn find-requires [code]
-  (some
-    #(when (and (seq? %)
-                (= (first %) :require))
-       (rest %))
-    code))
+  (->> (some #(get-symbol % 'ns) code)
+      (rest)
+      (some #(get-symbol % :require))
+      (rest)))
 
 (defn reduce-requires [f requires]
   (reduce
