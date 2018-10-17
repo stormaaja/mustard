@@ -1,0 +1,4 @@
+language: clojure
+lein: 2.8.1
+before_script: cd mustard
+script: lein do checkall test
