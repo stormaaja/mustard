@@ -44,12 +44,6 @@ Modify `:mustard` in `project.clj` or `profile.clj`.
           :unused-requires {:enable? false}}
 ```
 
-Or give configuration hash-map as command line arguments:
-
-```bash
-lein mustard "{:skip-tests? true :unused-requires {:enable? false}}"
-```
-
 # Linters
 
 ## Unused requires
