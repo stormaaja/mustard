@@ -28,9 +28,9 @@ lein mustard
 
 ## Parameters
 
-| Key           | Description          | Default       |
-| ------------- |----------------------|---------------|
-| :path         | Path of source files | :source-paths |
+| Key           | Description           | Type              | Default       |
+| ------------- |-----------------------|-------------------|---------------|
+| :src-paths    | Paths of source files | Vector of strings | :source-paths |
 
 ## Configuring
 
