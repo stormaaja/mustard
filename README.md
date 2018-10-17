@@ -7,6 +7,10 @@ improve their code quality. Nothing too fancy or hard to use.
 
 Mustard is currently under development and lacks most of its planned features.
 
+Leiningen plugin can be found in Clojars:
+
+![](https://clojars.org/lein-mustard/latest-version.svg)
+
 # Installing
 
 Put `[lein-mustard "0.1.0"]` into the `:plugins` vector of a project or your
