@@ -75,8 +75,10 @@
 (defn run-project [project & args]
   (println)
   (println "Checking source files with Mustard")
-  (let [analysis (analyze-project (concat (:source-paths project)
-                                          (:test-paths project)))
+  (let [file-paths (or (get-in project [:mustard :src-paths])
+                       (concat (:source-paths project)
+                               (:test-paths project)))
+        analysis (analyze-project file-paths)
         exit-code (detect-exit-code analysis)
         bad-file-count (count (remove :success analysis))]
     (doseq [file-report analysis]
