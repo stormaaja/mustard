@@ -15,7 +15,7 @@ Leiningen plugin can be found in Clojars:
 
 # Installing
 
-Put `[lein-mustard "0.1.0"]` into the `:plugins` vector of a project or your
+Put `[lein-mustard "0.1.1"]` into the `:plugins` vector of a project or your
 `:user` profile.
 
 # Usage

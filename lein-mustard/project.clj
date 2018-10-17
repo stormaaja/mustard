@@ -1,4 +1,4 @@
-(defproject lein-mustard "0.1.0"
+(defproject lein-mustard "0.1.1"
   :description "Leiningen plugin for Mustard"
   :url "https://github.com/stormaaja/mustard"
   :license {:name "Eclipse Public License"
