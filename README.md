@@ -61,4 +61,7 @@ Note that Mustard analyzes only first namespace declaring in file.
 
 # License
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Copyright © 2018 Matti Ahinko
+
+Distributed under the Eclipse Public License either version 1.0 or (at
+your option) any later version, the same as Clojure.
