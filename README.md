@@ -11,6 +11,8 @@ Leiningen plugin can be found in Clojars:
 
 ![](https://clojars.org/lein-mustard/latest-version.svg)
 
+[![Build Status](https://travis-ci.org/stormaaja/mustard.svg?branch=master)](https://travis-ci.org/stormaaja/mustard)
+
 # Installing
 
 Put `[lein-mustard "0.1.0"]` into the `:plugins` vector of a project or your
