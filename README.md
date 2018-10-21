@@ -1,7 +1,7 @@
 # Mustard
 Yet another Clojure static code analyze tool.
 
-Mustard is a zero dependency static Clojure code analyzer plugin for
+Mustard is a static Clojure code analyzer plugin for
 [Leiningen](https://leiningen.org/). It's goal is for helping developers to
 improve their code quality. Nothing too fancy or hard to use.
 
