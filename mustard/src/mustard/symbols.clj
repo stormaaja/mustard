@@ -12,9 +12,12 @@
 (defn get-symbols [code]
   (reduce
     (fn [c n]
-      (if (coll? n)
-        (into c (get-symbols n))
-        (conj c n)))
+      (cond
+        (not (valid-code? n)) c
+        (map? n) (into c (get-symbols (vals n)))
+        (coll? n) (into c (get-symbols n))
+        (symbol? n) (conj c n)
+        :else c))
     '()
     code))
 
