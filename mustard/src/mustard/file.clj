@@ -11,10 +11,10 @@
 
 (defn read-file-symbols [path]
   (try
-    (-> (slurp path)
+    (->> (slurp path)
         remove-unevaluated-keywords
         wrap-with-parenthesis
-        r/read-string)
+        (r/read-string {:read-cond :allow}))
     (catch clojure.lang.ExceptionInfo e
       (throw (ex-info (.getMessage e) (assoc (ex-data e) :path path))))))
 
