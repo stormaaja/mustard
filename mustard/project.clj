@@ -18,5 +18,4 @@
                         ["kibit"]
                         ["bikeshed"]
                         ["eastwood"]
-                        ["cljfmt" "check"]
-                        ["mustard"]]})
+                        ["cljfmt" "check"]]})
