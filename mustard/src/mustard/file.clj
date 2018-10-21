@@ -3,16 +3,16 @@
             [clojure.tools.reader :as r]
             [clojure.string :as cstr]))
 
-(def chars {:par-open 40
-            :par-close 41
-            :end -1})
+(def char-codes {:par-open 40
+                 :par-close 41
+                 :end -1})
 
 (defn skip-until-paren! [reader]
   (loop []
     (let [c (.read reader)]
       (cond
-        (= c (:end chars)) nil
-        (= c (:par-open chars)) (char c)
+        (= c (:end char-codes)) nil
+        (= c (:par-open char-codes)) (char c)
         :else (recur)))))
 
 (defn read-next-block! [reader]
@@ -25,8 +25,8 @@
             (when (neg? nc) (Exception. "Unbalanced parenthesis"))
             (.append sb (char nc))
             (cond
-              (= nc (:par-open chars)) (recur (inc depth))
-              (= nc (:par-close chars)) (recur (dec depth))
+              (= nc (:par-open char-codes)) (recur (inc depth))
+              (= nc (:par-close char-codes)) (recur (dec depth))
               :else (recur depth))))))))
 
 (defn remove-unevaluated-keywords [s]
