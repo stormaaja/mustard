@@ -40,7 +40,7 @@
         (reverse coll)))))
 
 (defn clj-file? [file]
-  (some? (re-find #".*\.cljs?$" (.getName file))))
+  (and (some? file) (some? (re-find #".*\.clj(s|c)?$" (.getName file)))))
 
 (defn find-clj-files [folder]
   (filter
