@@ -22,7 +22,7 @@
         (if (zero? depth)
           (str sb)
           (let [nc (.read reader)]
-            (when (neg? nc) (Exception. "Unbalanced parenthesis"))
+            (when (neg? nc) (throw (Exception. "Unbalanced parenthesis")))
             (.append sb (char nc))
             (cond
               (= nc (:par-open char-codes)) (recur (inc depth))
