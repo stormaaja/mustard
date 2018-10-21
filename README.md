@@ -6,7 +6,7 @@ Mustard is a static Clojure code analyzer plugin for
 improve their code quality. Nothing too fancy or hard to use.
 
 Mustard is currently under development and lacks most of its planned features.
-Use it at your own risk.
+Use it at your own risk and only for code you trust (plugin uses readers).
 
 Leiningen plugin can be found in Clojars:
 
