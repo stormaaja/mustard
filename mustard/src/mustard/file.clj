@@ -19,7 +19,7 @@
       (throw (ex-info (.getMessage e) (assoc (ex-data e) :path path))))))
 
 (defn clj-file? [file]
-  (and (some? file) (some? (re-find #".*\.clj(s|c)?$" (.getName file)))))
+  (and (some? file) (some? (re-find #".*\.cljc?$" (.getName file)))))
 
 (defn find-clj-files [folder]
   (filter
