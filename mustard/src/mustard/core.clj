@@ -75,16 +75,29 @@
 (defn run-project [project & args]
   (println)
   (println "Checking source files with Mustard")
-  (let [file-paths (or (get-in project [:mustard :src-paths])
-                       (concat (:source-paths project)
-                               (:test-paths project)))
-        analysis (analyze-project file-paths)
-        exit-code (detect-exit-code analysis)
-        bad-file-count (count (remove :success analysis))]
-    (doseq [file-report analysis]
-      (run! println (:message file-report)))
-    (println (format "Files checked: %d" (count analysis)))
-    (when (pos? bad-file-count)
-      (println (format "Bad files found: %d" bad-file-count)))
-    (println)
-    (System/exit exit-code)))
+  (try
+    (let [file-paths (or (get-in project [:mustard :src-paths])
+                         (concat (:source-paths project)
+                                 (:test-paths project)))
+          analysis (analyze-project file-paths)
+          exit-code (detect-exit-code analysis)
+          bad-file-count (count (remove :success analysis))]
+      (doseq [file-report analysis]
+        (run! println (:message file-report)))
+      (println (format "Files checked: %d" (count analysis)))
+      (when (pos? bad-file-count)
+        (println (format "Bad files found: %d" bad-file-count)))
+      (println)
+      (System/exit exit-code))
+    (catch clojure.lang.ExceptionInfo e
+      (println (colored "Error" :red))
+      (when-let [path (:path (ex-data e))]
+        (println "Error while processing file:")
+        (println (if (= (type path) java.io.File)
+                   (.getPath path)
+                   (str path))))
+      (println "Message:")
+      (println (.getMessage e))
+      (println "Stacktrace:")
+      (println (.printStackTrace e))
+      (System/exit 1))))
