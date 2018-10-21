@@ -22,7 +22,10 @@
           "(1 2 3)"))
     (let [r (get-reader "(1 2 3 4) (2 3 4 5)")]
       (f/read-next-block! r)
-      (is (= (f/read-next-block! r) "(2 3 4 5)")))))
+      (is (= (f/read-next-block! r) "(2 3 4 5)")))
+    (is (thrown-with-msg?
+          Exception #"Unbalanced parenthesis"
+          (f/read-next-block! (get-reader "((1 2 3)"))))))
 
 (deftest remove-unevaluated-keywords-test
   (testing "Remove unevaluated keywords"
