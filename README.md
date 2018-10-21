@@ -57,6 +57,8 @@ Modify `:mustard` in `project.clj` or `profile.clj`.
 Mustard seeks for unused requires. Because Mustard is static code analyze tool,
 it will not find any unused :all requires or if there is redefined symbols.
 
+### Limitations
+
 Note that Mustard analyzes only first namespace declaring in file.
 
 Mustard does not handle macros well at the moment.
