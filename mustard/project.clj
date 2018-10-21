@@ -3,7 +3,8 @@
   :url "https://github.com/stormaaja/mustard"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.9.0"]]
+  :dependencies [[org.clojure/clojure "1.9.0"]
+                 [org.clojure/tools.reader "1.3.0"]]
   :plugins [[lein-cljfmt "0.6.0"]
             [lein-kibit "0.1.6"]
             [lein-bikeshed "0.5.1"]
