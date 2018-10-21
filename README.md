@@ -61,6 +61,9 @@ Note that Mustard analyzes only first namespace declaring in file.
 
 Mustard does not handle macros well at the moment.
 
+Mustard does not handle reader conditionals (cljc-files) correctly at the
+moment.
+
 # License
 
 Copyright © 2018 Matti Ahinko
