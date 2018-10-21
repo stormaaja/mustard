@@ -1,10 +1,10 @@
 language: clojure
 lein: 2.8.1
 before_install:
-  - cd lein-mustard
+  - cd mustard
   - lein install
   - cd ..
-  - cd mustard
+  - cd lein-mustard
   - lein install
 
 script:
