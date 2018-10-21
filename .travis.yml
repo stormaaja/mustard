@@ -8,7 +8,7 @@ before_install:
   - lein install
   - cd ..
   - cd mustard
-  - lein with profile check deps
+  - lein with-profile check deps
 
 script:
   - cd mustard
