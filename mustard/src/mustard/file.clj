@@ -3,41 +3,20 @@
             [clojure.tools.reader :as r]
             [clojure.string :as cstr]))
 
-(def char-codes {:par-open 40
-                 :par-close 41
-                 :end -1})
-
-(defn skip-until-paren! [reader]
-  (loop []
-    (let [c (.read reader)]
-      (cond
-        (= c (:end char-codes)) nil
-        (= c (:par-open char-codes)) (char c)
-        :else (recur)))))
-
-(defn read-next-block! [reader]
-  (when-let [c (skip-until-paren! reader)]
-    (let [sb (StringBuffer. (str c))]
-      (loop [depth 1]
-        (if (zero? depth)
-          (str sb)
-          (let [nc (.read reader)]
-            (when (neg? nc) (throw (Exception. "Unbalanced parenthesis")))
-            (.append sb (char nc))
-            (cond
-              (= nc (:par-open char-codes)) (recur (inc depth))
-              (= nc (:par-close char-codes)) (recur (dec depth))
-              :else (recur depth))))))))
-
 (defn remove-unevaluated-keywords [s]
   (cstr/replace s #"::" ":"))
 
+(defn wrap-with-parenthesis [s]
+  (format "(%s)" s))
+
 (defn read-file-symbols [path]
-  (with-open [reader (java.io.PushbackReader. (io/reader path))]
-    (loop [coll '()]
-      (if-let [b (read-next-block! reader)]
-        (recur (conj coll (-> b remove-unevaluated-keywords r/read-string)))
-        (reverse coll)))))
+  (try
+    (-> (slurp path)
+        remove-unevaluated-keywords
+        wrap-with-parenthesis
+        r/read-string)
+    (catch clojure.lang.ExceptionInfo e
+      (throw (ex-info (.getMessage e) (assoc (ex-data e) :path path))))))
 
 (defn clj-file? [file]
   (and (some? file) (some? (re-find #".*\.clj(s|c)?$" (.getName file)))))
