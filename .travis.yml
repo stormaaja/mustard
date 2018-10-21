@@ -1,4 +1,12 @@
 language: clojure
 lein: 2.8.1
-before_install: cd mustard
-script: lein do checkall test
+before_install:
+  - cd lein-mustard
+  - lein install
+  - cd ..
+  - cd mustard
+  - lein install
+
+script:
+  - lein checkall
+  - lein test
