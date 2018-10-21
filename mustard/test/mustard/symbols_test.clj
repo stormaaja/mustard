@@ -7,10 +7,14 @@
     (is (= (set (s/get-symbols
                   '((ns mustard.test
                       (:require [hello.world :as h]))
+                     (def value1 #{:hello :other "world"})
+                     (def value2 {:some-key "And Some value" :other-key 20})
+                     (def value3 {:some-strange/thing "Value"})
                      (defn hello [w]
                        (prn (h/p w))))))
-           (set '(ns mustard.test :require hello.world :as
-                     h defn hello w prn h/p w))))))
+           (set '(ns mustard.test hello.world h
+                     def value1 value2 value3
+                     defn hello w prn h/p w))))))
 
 (deftest get-used-namespaces-test
   (testing "Get used namespaces"
