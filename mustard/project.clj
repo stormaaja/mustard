@@ -11,8 +11,7 @@
             [jonase/eastwood "0.3.1"]
             [lein-auto "0.1.3"]
             [lein-ancient "0.6.15"]
-            [lein-cloverage "1.0.13"]
-            [lein-mustard "0.1.2"]]
+            [lein-cloverage "1.0.13"]]
   :cloverage {:html? false}
   :cljfmt {:indents {#".*" [[:block 0]]}}
   :aliases {"checkall" ["do"
