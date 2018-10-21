@@ -18,4 +18,5 @@
                         ["kibit"]
                         ["bikeshed"]
                         ["eastwood"]
-                        ["cljfmt" "check"]]})
+                        ["cljfmt" "check"]]}
+  :profiles {:check {:plugins [[lein-mustard "0.1.2"]]}})

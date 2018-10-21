@@ -6,7 +6,12 @@ before_install:
   - cd ..
   - cd lein-mustard
   - lein install
+  - cd ..
+  - cd mustard
+  - lein with profile check deps
 
 script:
+  - cd mustard
   - lein checkall
+  - lein with-profile check mustard
   - lein test
