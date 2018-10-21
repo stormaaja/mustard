@@ -1,4 +1,4 @@
-(defproject mustard "0.1.3"
+(defproject mustard "0.1.4"
   :description "Yet another Clojure static code analyze tool."
   :url "https://github.com/stormaaja/mustard"
   :license {:name "Eclipse Public License"
@@ -19,4 +19,4 @@
                         ["bikeshed"]
                         ["eastwood"]
                         ["cljfmt" "check"]]}
-  :profiles {:check {:plugins [[lein-mustard "0.1.3"]]}})
+  :profiles {:check {:plugins [[lein-mustard "0.1.4"]]}})

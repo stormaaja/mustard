@@ -16,11 +16,11 @@ Leiningen plugin can be found in Clojars:
 
 # Installing
 
-Put `[lein-mustard "0.1.3"]` into the `:plugins` vector of a project or your
+Put `[lein-mustard "0.1.4"]` into the `:plugins` vector of a project or your
 `:user` profile. For example `~/lein/profiles.clj` would look like:
 
 ```
-{:user {:plugins [[lein-mustard "0.1.3"]]}}
+{:user {:plugins [[lein-mustard "0.1.4"]]}}
 
 ```
 
