@@ -1,4 +1,4 @@
-# mustard
+# Mustard
 Yet another Clojure static code analyze tool.
 
 Mustard is a zero dependency static Clojure code analyzer plugin for
